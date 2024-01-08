@@ -1,0 +1,8 @@
+<div
+    class="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-70 mx-auto border rounded-lg"
+    [class.hidden]="!isOpen"
+>
+    <div class="flex items-center justify-center" (click)="(onClick)">
+        <ng-content></ng-content>
+    </div>
+</div>

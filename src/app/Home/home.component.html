@@ -1,0 +1,69 @@
+<div class="container xl:w-2/3 md:w-full mx-auto p-10">
+    <h1 class="text-3xl font-black">Contact Information</h1>
+    <div class="md:flex lg:justify-between items-center mb-6 mt-6">
+        <div class="mb-3 md:mb-5 w-3/4">
+            <p class="text-xl">
+                Your list of contacts appear here. To add new contact, click on
+            </p>
+            <p class="text-xl">the Add New Contact button.</p>
+        </div>
+        <app-button
+            (click)="toggleModal()"
+            [addClasses]="'bg-purple text-white'"
+        >
+            Add New Contact
+        </app-button>
+    </div>
+    <div class="flex justify-end py-6 gap-4">
+        <app-icon-button
+            class="{{ getIsGrid() ? 'opacity-100' : 'opacity-50' }}"
+            (click)="setIsGrid(true)"
+        >
+            <img src="{{ tileIcon }}" alt="tileIcon" />
+        </app-icon-button>
+        <app-icon-button
+            class="{{ getIsGrid()! ? 'opacity-50' : 'opacity-100' }}"
+            (click)="setIsGrid(false)"
+        >
+            <img src="{{ tableIcon }}" alt="tableIcon" />
+        </app-icon-button>
+    </div>
+    <app-container
+        class="{{
+            getIsGrid()
+                ? 'grid md:grid cols-2 xs:grid-cols-1 sm:grid-cols-3 gap-7'
+                : ''
+        }}"
+    >
+        <ng-container *ngFor="let contact of contacts$ | async">
+            <app-card
+                [data]="contact"
+                *ngIf="getIsGrid()"
+                [handleDelete]="handleDelete"
+                (handleEdit)="handleEdit($event)"
+            ></app-card>
+        </ng-container>
+        <ng-container *ngIf="!getIsGrid()">
+            <app-table
+                [contacts]="contacts$ | async"
+                [handleDelete]="handleDelete"
+                (handleEdit)="handleEdit($event)"
+            ></app-table>
+        </ng-container>
+    </app-container>
+
+    <!-- Modal Container Here -->
+    <app-form-modal
+        [isOpen]="isModalOpen"
+        (onClose)="isModalOpen = false"
+        *ngIf="isModalOpen"
+        (closeModal)="toggleModal()"
+    >
+        <app-contact-form
+            [selectedId]="selectedId"
+            [isEdit]="isEdit"
+            (closeModal)="toggleModal()"
+            (toastSuccess)="showSuccess($event)"
+        />
+    </app-form-modal>
+</div>

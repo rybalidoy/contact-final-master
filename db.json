@@ -1,0 +1,82 @@
+{
+  "contacts": [
+    {
+      "id": 2,
+      "name": "Jason Aster",
+      "email": "jason_the_menace@gmail.com",
+      "phone": "09026002221"
+    },
+    {
+      "id": 3,
+      "name": "Mikki Jilla",
+      "email": "keyboardista@gmail.com",
+      "phone": "09207002121"
+    },
+    {
+      "id": 4,
+      "name": "Jose Luis Linao",
+      "email": "kamikazeeprinece@gmail.com",
+      "phone": "09171234651"
+    },
+    {
+      "id": 5,
+      "name": "Allan Burdeos",
+      "email": "allanburdeos1@gmail.com",
+      "phone": "09129321821"
+    },
+    {
+      "id": 7,
+      "name": "Juanelli Lubiano",
+      "email": "kamikazeeprincess@gmail.com",
+      "phone": "09782175621"
+    },
+    {
+      "name": "Led Tuyay",
+      "phone": "09182319271",
+      "email": "led_zt@gmail.com",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "name": "Ryan Christopher Balidoy",
+      "email": "rybalidoy123@gmail.com",
+      "phone": "09771238191"
+    },
+    {
+      "id": 10,
+      "name": "User1",
+      "email": "user1@gmail.com",
+      "phone": "09163421311"
+    },
+    {
+      "id": 11,
+      "name": "User2",
+      "email": "user2@gmail.com",
+      "phone": "09163421312"
+    },
+    {
+      "id": 12,
+      "name": "User3",
+      "email": "user3@gmail.com",
+      "phone": "09163421313"
+    },
+    {
+      "id": 14,
+      "name": "Ryan",
+      "email": "niec@gmail.com",
+      "phone": "09782123144"
+    },
+    {
+      "id": 15,
+      "name": "NewContact",
+      "email": "newcontact@gmail.com",
+      "phone": "09271912311"
+    },
+    {
+      "id": 16,
+      "name": "Ryan Balidoy",
+      "email": "rybalidoy01@gmail.com",
+      "phone": "09667217921"
+    }
+  ]
+}

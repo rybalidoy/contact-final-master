@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+    text-decoration: underline;
+}
+
+th,
+td {
+    text-align: left;
+}
+
+.table > table,
+.table th,
+.table td {
+    border-color: black;
+    border: 1px solid;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.table-color {
+    background-color: #460073;
+    color: white;
+}
+
+.table-font {
+    font-size: 1.2rem;
+}
+
+.cards > h2 + p {
+    color: black;
+}
+
+.cards > p {
+    font-size: 1rem;
+}

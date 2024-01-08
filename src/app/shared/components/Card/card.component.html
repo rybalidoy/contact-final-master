@@ -1,0 +1,32 @@
+<div
+    attr.key="{{ data.id }}"
+    class="cards bg-white border border-gray rounded-lg flex px-6 py-6 justify-between items-start max-h-fit"
+>
+    <div class="space-y-1 overflow-hidden overflow-ellipsis">
+        <h2
+            class="text-xl font-bold text-gray-600 hover:underline whitespace-nowrap overflow-ellipsis overflow-hidden container"
+        >
+            <a
+                routerLink="/details/{{ data.id }}"
+                class="no-underline focus:outline-none focus:underline"
+                aria-label="Link to Contact Informations"
+            >
+                {{ data.name }}
+            </a>
+        </h2>
+        <p class="overflow-ellipsis overflow-hidden container">
+            {{ data.email }}
+        </p>
+        <p class="overflow-ellipsis overflow-hidden container">
+            {{ data.phone | PhoneFormatter : 1 }}
+        </p>
+    </div>
+    <div class="flex space-x-0 md:mt-1.5 min-w-fit gap-4">
+        <app-icon-button (click)="onEdit(data.id)">
+            <img src="{{ editIcon }}" alt="editIcon" />
+        </app-icon-button>
+        <app-icon-button (click)="onDelete(data.id)">
+            <img src="{{ trashIcon }}" alt="trashIcon" />
+        </app-icon-button>
+    </div>
+</div>

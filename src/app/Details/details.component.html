@@ -1,0 +1,69 @@
+<!-- Modal backdrop -->
+<div class="fixed z-10 inset-0 overflow-y-auto bg-gray-500 bg-opacity-75">
+    <!-- Modal content -->
+    <div
+        class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
+    >
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <div
+            class="block transform transition-all bg-gray-200 px-4 py-3 text-left sm:w-2/3 mx-auto mt-5"
+        >
+            <div class="flex items-center gap-3 space-x-2">
+                <app-icon-button (click)="goBack()">
+                    <img
+                        class="h-10 w-10"
+                        src="{{ backArrowIcon }}"
+                        alt="tileIcon"
+                    />
+                </app-icon-button>
+                <h1 class="font-black text-3xl flex items-center mb-2">
+                    Customer Information
+                </h1>
+            </div>
+        </div>
+        <div
+            class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden transform w-2/3 transition-all sm:align-middle sm:3/4"
+        >
+            <div class="px-4 py-5 sm:p-6">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="col-span-1">
+                        <label
+                            for="name"
+                            class="block text-sm font-medium text-gray"
+                            >Name</label
+                        >
+                        <p class="mt-1 text-medium font-semibold text-black">
+                            {{ contact.name || "No name available" }}
+                        </p>
+                    </div>
+                    <div class="col-span-1">
+                        <label
+                            for="email"
+                            class="block text-sm text-medium font-medium text-gray"
+                        >
+                            Email Address
+                        </label>
+                        <p class="mt-1 text-medium font-semibold text-black">
+                            {{ contact.email || "No email available" }}
+                        </p>
+                    </div>
+                    <div class="col-span-1">
+                        <label
+                            for="phone"
+                            class="block text-sm font-medium text-gray"
+                            >Contact Number</label
+                        >
+                        <p class="mt-1 text-medium font-semibold text-black">
+                            {{
+                                contact.phone || "No phone available"
+                                    | PhoneFormatter : 1
+                            }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

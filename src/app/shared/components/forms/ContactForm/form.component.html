@@ -1,0 +1,135 @@
+<form
+    [formGroup]="contactForm"
+    (submit)="onSubmit()"
+    class="px-7 py-4 bg-white border border-black rounded-lg resize-none min-h-1/3"
+>
+    <div class="flex flex-col gap-1 my-4">
+        <label for="name">Name</label>
+        <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="border-2 border-gray rounded-md p-2"
+            [ngClass]="{
+                'border-red':
+                    contactForm.controls['name'].invalid &&
+                    (contactForm.controls['name'].dirty ||
+                        contactForm.controls['name'].touched)
+            }"
+            aria-label="name"
+            aria-required="true"
+            [attr.aria-invalid]="
+                contactForm.controls['name'].invalid ? 'true' : 'false'
+            "
+            aria-describedby="name-error"
+            aria-labelledby="name-label"
+        />
+        <div
+            *ngIf="
+                contactForm.controls['name'].touched &&
+                contactForm.controls['name'].invalid
+            "
+            class="text-red text-sm mt-1"
+        >
+            <div *ngIf="contactForm.controls['name'].errors?.['required']">
+                Please enter a name
+            </div>
+            <div *ngIf="contactForm.controls['name'].errors?.['minlength']">
+                Name must be at least 4 characters long.
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-1 my-4">
+        <label for="phone">Contact number</label>
+        <input
+            type="text"
+            id="phone"
+            pattern="[0-9]{11}"
+            formControlName="phone"
+            class="border-2 border-gray rounded-md p-2"
+            [ngClass]="{
+                'border-red':
+                    contactForm.controls['phone'].invalid &&
+                    (contactForm.controls['phone'].dirty ||
+                        contactForm.controls['phone'].touched)
+            }"
+            aria-label="Phone"
+            aria-required="true"
+            [attr.aria-invalid]="
+                contactForm.controls['phone'].invalid ? 'true' : 'false'
+            "
+            aria-describedby="phone-error"
+            aria-labelledby="phone-label"
+        />
+        <div
+            *ngIf="
+                contactForm.controls['phone'].touched &&
+                contactForm.controls['phone'].invalid
+            "
+            class="text-red text-sm mt-1"
+        >
+            <div *ngIf="contactForm.controls['phone'].errors?.['required']">
+                Please enter a contact number
+            </div>
+            <div *ngIf="contactForm.controls['phone'].errors?.['pattern']">
+                Contact number must be 11 digits long.
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-1 my-4">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="border-2 border-gray rounded-md p-2"
+            [ngClass]="{
+                'border-red':
+                    contactForm.controls['email'].invalid &&
+                    (contactForm.controls['email'].dirty ||
+                        contactForm.controls['email'].touched)
+            }"
+            aria-label="Email"
+            aria-required="true"
+            [attr.aria-invalid]="
+                contactForm.controls['email'].invalid ? 'true' : 'false'
+            "
+            aria-describedby="email-error"
+            aria-labelledby="email-label"
+        />
+        <div
+            *ngIf="
+                contactForm.controls['email'].touched &&
+                contactForm.controls['email'].invalid
+            "
+            class="text-red text-sm mt-1"
+        >
+            <div *ngIf="contactForm.controls['email'].errors?.['required']">
+                Please enter an Email Address
+            </div>
+            <div *ngIf="contactForm.controls['email'].errors?.['email']">
+                Please enter a valid Email Address
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-between gap-4">
+        <app-button
+            buttonType="button"
+            (click)="onCancel()"
+            [addClasses]="'border-2 border-purple text-black'"
+            >Cancel</app-button
+        >
+        <app-button
+            buttonType="submit"
+            class="text-white"
+            [addClasses]="
+                isFormInvalid() ? 'bg-lightgray text-black' : 'bg-purple'
+            "
+        >
+            {{ isEdit ? "Save Changes" : "Add Contact" }}
+        </app-button>
+    </div>
+</form>
